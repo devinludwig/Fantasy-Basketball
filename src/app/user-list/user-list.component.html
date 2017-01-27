@@ -5,11 +5,12 @@
     <button type="button" class="btn right card-active" (click)="edit(user)">Edit</button>
     <h3 (click)="goToUserPage(user)"><em>{{user.userName}}</em></h3>
   </div>
-  <div class="input-field card" *ngIf="selectedUser === user">
+  <form class="input-field card" *ngIf="selectedUser === user" (submit)="finishedEditing(selectedUser)">
     <div class="card-content">
-      <button type="button" class="btn right yellow darken-4" (click)="finishedEditing()">Done</button>
-      <input #name id="name" type="text" [(ngModel)]="selectedUser.userName">
+      <button type="button" class="btn right red darken-4" (click)="delete(selectedUser)">Delete</button>
+      <button type="submit" class="btn right yellow darken-4" >Done</button>
+      <input #name name="name-input" id="name" type="text" [(ngModel)]="selectedUser.userName">
       <label for="name">UserName</label>
     </div>
-  </div>
+  </form>
 </div>

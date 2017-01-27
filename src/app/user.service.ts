@@ -21,4 +21,15 @@ export class UserService {
   getUserById(userId: string) {
     return this.angularFire.database.object('/users/' + userId);
   }
+
+  updateUser(userUpdate) {
+    var userEntry = this.getUserById(userUpdate.$key);
+    userEntry.update({
+      userName: userUpdate.userName
+    });
+  }
+
+  destroy(user) {
+    this.getUserById(user.$key).remove();
+  }
 }

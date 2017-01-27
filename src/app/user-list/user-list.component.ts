@@ -30,7 +30,14 @@ export class UserListComponent implements OnInit {
     this.selectedUser = user;
   }
 
-  finishedEditing(){
+  finishedEditing(userUpdate){
+    this.userService.updateUser(userUpdate);
     this.selectedUser = '';
+  }
+
+  delete(user) {
+    if(confirm("Are you sure you want to delete this user from the system?")){
+      this.userService.destroy(user);
+    }
   }
 }
