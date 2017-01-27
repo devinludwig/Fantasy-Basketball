@@ -1,7 +1,7 @@
-<h2>Marketplace</h2>
+<h2>Team Managers</h2>
 
 <div *ngFor="let user of users | async" (click)="goToUserPage(user)" class="card">
   <div class="card-action">
-    <h3><em>{{user.name}}</em></h3>
+    <h3><em>{{user.userName}}</em></h3>
   </div>
 </div>

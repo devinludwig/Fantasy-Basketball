@@ -5,6 +5,22 @@ import { Component } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
 export class AppComponent {
-  title = 'app works!';
+  activeAbout: boolean = false;
+  activeList: boolean = false;
+  activeTeams: boolean = false;
+  showLogin: boolean = false;
+
+  showActive(link) {
+    if (link) {
+      return "active";
+    } else {
+      return "";
+    }
+  }
+
+  toggleLogin() {
+    this.showLogin = !this.showLogin;
+  }
 }

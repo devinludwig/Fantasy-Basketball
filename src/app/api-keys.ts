@@ -5,3 +5,5 @@ export var masterFirebaseConfig = {
   storageBucket: "fantasy-basketball-4e2ce.appspot.com",
   messagingSenderId: "832988684825"
 };
+
+export var sportRadarKey = "wg4a8xm239s8fzbjw52576rn"

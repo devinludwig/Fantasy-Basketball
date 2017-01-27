@@ -1,13 +1,18 @@
 <nav>
   <div class="nav-wrapper blue">
     <a routerLink="" class="brand-logo center">Fantasy Basketball Central</a>
-    <ul class="left hide-on-med-and-down">
-      <li><a routerLink="#">Historical Teams</a></li>
-      <li><a routerLink="#">Managers</a></li>
-      <li class="active"><a routerLink="about">About</a></li>
+    <ul class="left">
+      <li [class]="showActive(activeTeams)" (click)="activeTeams = true; activeList = false; activeAbout = false"><a>Historical Teams</a></li>
+      <li [class]="showActive(activeList)" (click)="activeList = true; activeAbout = false; activeTeams = false"><a>Managers</a></li>
+      <li [class]="showActive(activeAbout)" (click)="activeAbout = true; activeList = false; activeTeams = false"><a routerLink="about">About</a></li>
+    </ul>
+    <ul class="right">
+      <li><a href="#" (click)="toggleLogin()">Login</a></li>
     </ul>
   </div>
 </nav>
 <div class="container">
+  <login *ngIf="showLogin" (loginSender)="toggleLogin()"></login>
+  <user-list *ngIf="activeList"></user-list>
   <router-outlet></router-outlet>
 </div>
