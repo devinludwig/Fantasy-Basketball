@@ -23,4 +23,8 @@ export class AppComponent {
   toggleLogin() {
     this.showLogin = !this.showLogin;
   }
+
+  hideList() {
+    this.activeList = false;
+  }
 }
