@@ -25,7 +25,9 @@ export class UserService {
   updateUser(userUpdate) {
     var userEntry = this.getUserById(userUpdate.$key);
     userEntry.update({
-      userName: userUpdate.userName
+      userName: userUpdate.userName,
+      teamName: userUpdate.teamName,
+      ranking: userUpdate.ranking
     });
   }
 

@@ -1,7 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { AngularFire, FirebaseListObservable } from 'angularfire2';
 import { UserService } from '../user.service';
-// import { User } from '../user.model';
 import { Router } from '@angular/router';
 
 @Component({
@@ -11,7 +10,7 @@ import { Router } from '@angular/router';
   providers: [UserService]
 })
 export class UserListComponent implements OnInit {
-  selectedUser;
+  @Output() selectedUser;
   users: FirebaseListObservable<any[]>;
   @Output() userSelectSender = new EventEmitter();
 
@@ -28,16 +27,5 @@ export class UserListComponent implements OnInit {
 
   edit(user) {
     this.selectedUser = user;
-  }
-
-  finishedEditing(userUpdate){
-    this.userService.updateUser(userUpdate);
-    this.selectedUser = '';
-  }
-
-  delete(user) {
-    if(confirm("Are you sure you want to delete this user from the system?")){
-      this.userService.destroy(user);
-    }
   }
 }

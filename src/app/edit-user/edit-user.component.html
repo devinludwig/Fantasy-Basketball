@@ -1,0 +1,27 @@
+<form class="input-field card" (submit)="finishedEditing(selectedUser)">
+  <div class="card-content">
+
+    <div class="row">
+      <div class="input-field col s6">
+        <input #name name="name-input" id="name" type="text" [(ngModel)]="selectedUser.userName">
+        <label for="name" class="active">User Name</label>
+      </div>
+
+      <div class="input-field col s6">
+        <input #name name="ranking-input" id="ranking" type="number" [(ngModel)]="selectedUser.ranking">
+        <label for="ranking" class="active">User Ranking</label>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="input-field col s6">
+        <input #team name="team-input" id="team" type="text" [(ngModel)]="selectedUser.teamName">
+        <label for="team" class="active">Team Name</label>
+      </div>
+
+      <button type="button" class="btn right red darken-4" (click)="delete(selectedUser)">Delete</button>
+      <button type="submit" class="btn right yellow darken-4" >Done</button>
+
+    </div>
+  </div>
+</form>

@@ -3,14 +3,12 @@
 <div *ngFor="let user of users | async" class="card">
   <div class="card-content">
     <button type="button" class="btn right card-active" (click)="edit(user)">Edit</button>
-    <h3 (click)="goToUserPage(user)"><em>{{user.userName}}</em></h3>
-  </div>
-  <form class="input-field card" *ngIf="selectedUser === user" (submit)="finishedEditing(selectedUser)">
-    <div class="card-content">
-      <button type="button" class="btn right red darken-4" (click)="delete(selectedUser)">Delete</button>
-      <button type="submit" class="btn right yellow darken-4" >Done</button>
-      <input #name name="name-input" id="name" type="text" [(ngModel)]="selectedUser.userName">
-      <label for="name">UserName</label>
+    <div (click)="goToUserPage(user)">
+      <h3>{{user.ranking}}.) <em>{{user.userName}}</em></h3>
+      <h5>{{user.teamName}}</h5>
     </div>
-  </form>
+  </div>
+
+  <edit-user *ngIf="selectedUser === user" [selectedUser]="selectedUser"></edit-user>
+
 </div>

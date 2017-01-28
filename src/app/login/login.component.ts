@@ -15,8 +15,8 @@ export class LoginComponent {
 
   constructor(private userService: UserService) { }
 
-  submitForm(userName: string) {
-    var newUser = new User(userName);
+  submitForm(userName: string, teamName: string) {
+    var newUser = new User(userName, teamName, (Math.floor(Math.random()*20 + 11)));
     this.userService.addUser(newUser);
     this.loginSender.emit();
   }

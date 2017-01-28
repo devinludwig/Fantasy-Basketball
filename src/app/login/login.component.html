@@ -1,7 +1,11 @@
-<form (submit)="submitForm(newUser.value)">
+<form (submit)="submitForm(newUser.value, newTeam.value)">
   <div class="input-field">
     <input #newUser id="newUser" type="text" class="validate">
     <label for="newUser">New User Name</label>
+  </div>
+  <div class="input-field">
+    <input #newTeam id="newTeam" type="text" class="validate">
+    <label for="newTeam">New Team Name</label>
   </div>
   <button class="btn waves-effect waves-light" type="submit">Join</button>
 </form>
