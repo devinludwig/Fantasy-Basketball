@@ -12,6 +12,7 @@ import { UserListComponent } from './user-list/user-list.component';
 import { LoginComponent } from './login/login.component';
 import { UserDetailComponent } from './user-detail/user-detail.component';
 import { EditUserComponent } from './edit-user/edit-user.component';
+import { RankingPipe } from './ranking.pipe';
 
 export const firebaseConfig = {
   apiKey: masterFirebaseConfig.apiKey,
@@ -27,7 +28,8 @@ export const firebaseConfig = {
     UserListComponent,
     LoginComponent,
     UserDetailComponent,
-    EditUserComponent
+    EditUserComponent,
+    RankingPipe
   ],
   imports: [
     BrowserModule,

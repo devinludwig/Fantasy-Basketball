@@ -1,6 +1,17 @@
 <h2>Team Managers</h2>
 
-<div *ngFor="let user of users | async" class="card">
+   <div *ngIf="users" >
+     <form action="#" (change)="onChange($event.target.value)">
+         <input name="ranking" value="all" type="radio" id="all"/>
+         <label for="all">All Users</label>
+         <input name="ranking" value="high" type="radio" id="high"/>
+         <label for="high">High Ranking</label>
+         <input name="ranking" value="low" type="radio" id="low"/>
+         <label for="low">Low Ranking</label>
+     </form>
+   </div>
+
+<div *ngFor="let user of users | ranking:filterByRanking" class="card">
   <div class="card-content">
     <button type="button" class="btn right card-active" (click)="edit(user)">Edit</button>
     <div (click)="goToUserPage(user)">

@@ -11,13 +11,20 @@ import { Router } from '@angular/router';
 })
 export class UserListComponent implements OnInit {
   @Output() selectedUser;
-  users: FirebaseListObservable<any[]>;
   @Output() userSelectSender = new EventEmitter();
+  users;
+  filterByRanking: string = 'all';
 
   constructor(private userService: UserService, private router: Router) { }
 
   ngOnInit() {
-    this.users = this.userService.getUsers();
+    this.userService.getUsers().subscribe(dataLastEmittedFromObserver => {
+      this.users = dataLastEmittedFromObserver;
+    });
+  }
+
+  onChange(optionClicked) {
+    this.filterByRanking = optionClicked;
   }
 
   goToUserPage(clickedUser) {
